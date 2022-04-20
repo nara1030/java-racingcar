@@ -21,8 +21,8 @@ public class Car {
         }
     }
 
-    boolean isLocatedAt(int maxDistance) {
-        return this.distance == maxDistance;
+    boolean isLocatedAt(int distance) {
+        return this.distance == distance;
     }
 
     int getGreaterDistance(int distance) {

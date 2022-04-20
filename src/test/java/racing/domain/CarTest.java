@@ -17,28 +17,28 @@ public class CarTest {
     @Test
     void 차가_전진() {
         car.move(() -> true);
-        assertThat(car.getDistance()).isEqualTo(1);
+        assertThat(car.isLocatedAt(1)).isTrue();
     }
 
     @Test
     void 차가_정지() {
         car.move(() -> false);
-        assertThat(car.getDistance()).isEqualTo(0);
+        assertThat(car.isLocatedAt(0)).isTrue();
     }
 
     @Test
     void 차의_누적거리() {
         assertAll(
                 () -> car.move(() -> true),
-                () -> assertThat(car.getDistance()).isEqualTo(1),
+                () -> assertThat(car.isLocatedAt(1)).isTrue(),
                 () -> car.move(() -> false),
-                () -> assertThat(car.getDistance()).isEqualTo(1),
+                () -> assertThat(car.isLocatedAt(1)).isTrue(),
                 () -> car.move(() -> true),
-                () -> assertThat(car.getDistance()).isEqualTo(2),
+                () -> assertThat(car.isLocatedAt(2)).isTrue(),
                 () -> car.move(() -> true),
-                () -> assertThat(car.getDistance()).isEqualTo(3),
+                () -> assertThat(car.isLocatedAt(3)).isTrue(),
                 () -> car.move(() -> false),
-                () -> assertThat(car.getDistance()).isEqualTo(3)
+                () -> assertThat(car.isLocatedAt(3)).isTrue()
         );
     }
 }
