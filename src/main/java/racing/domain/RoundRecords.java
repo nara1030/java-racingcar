@@ -15,11 +15,17 @@ public class RoundRecords {
         records.add(new Cars(record));
     }
 
-    public List<Cars> getEntrieRecords() {
+    public List<Cars> getEntireRecords() {
         return Collections.unmodifiableList(records);
     }
 
-    public Cars getLastResult() {
+    public List<Car> getWinningCars() {
+        return getLastResult().getCarsWithMaxDistance();
+    }
+
+    private Cars getLastResult() {
         return records.get(records.size() - 1);
     }
+
+
 }
